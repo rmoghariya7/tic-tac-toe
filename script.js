@@ -83,6 +83,8 @@ function winLose() {
 }
 
 function handleclick(e) {
+  if (!e.target.textContent == '') return;
+
   currentIndex = e.target.dataset.number;
   input[currentIndex] = currentPlayer;
   e.target.innerHTML = currentPlayer;
@@ -99,7 +101,7 @@ restartBtn.addEventListener('click', function () {
   [...cells].forEach((cell) => (cell.innerHTML = ''));
   [...cells].forEach((cell) => cell.replaceWith(cell.cloneNode(true)));
   initializeGame();
-  turnText.innerHTML = `${currentPlayer} Turn`;
+  turnText.innerHTML = `${currentPlayer}'s Turn`;
 });
 
 undo.addEventListener('click', function () {
@@ -107,14 +109,18 @@ undo.addEventListener('click', function () {
   const cells = document.querySelectorAll('.tic-tac');
   const poppedEl = undoArr.pop();
 
-  input[poppedEl] = '';
-  [...cells].forEach((cell, index) => (cell.innerHTML = input[index]));
-
   if (undoArr.length == 0) {
     currentPlayer = X_TURN;
+    turnText.innerHTML = `${currentPlayer}'s Turn`;
   } else {
-    currentPlayer = input[poppedEl] == 'X' ? (currentPlayer = X_TURN) : O_TURN;
+    currentPlayer =
+      input[poppedEl] == 'X'
+        ? (currentPlayer = X_TURN)
+        : (currentPlayer = O_TURN);
+    turnText.innerHTML = `${currentPlayer}'s Turn`;
   }
+  input[poppedEl] = '';
+  [...cells].forEach((cell, index) => (cell.innerHTML = input[index]));
 });
 
 const loader = document.querySelector('#loading');
