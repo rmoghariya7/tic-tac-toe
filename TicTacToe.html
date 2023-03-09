@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="TicTacToe.css" />
+  </head>
+  <body>
+    <h1>Tic Tac Toe</h1>
+    <button class="undo" id="undo">
+      <img src="rotate-left-solid.svg" alt="" height="20px" width="20px" />
+    </button>
+    <div class="grid-container">
+      <div class="tic-tac tic-0" data-number="0">O</div>
+      <div class="tic-tac tic-1" data-number="1">X</div>
+      <div class="tic-tac tic-2" data-number="2"></div>
+      <div class="tic-tac tic-3" data-number="3"></div>
+      <div class="tic-tac tic-4" data-number="4"></div>
+      <div class="tic-tac tic-5" data-number="5"></div>
+      <div class="tic-tac tic-6" data-number="6"></div>
+      <div class="tic-tac tic-7" data-number="7"></div>
+      <div class="tic-tac tic-8" data-number="8"></div>
+    </div>
+
+    <h2 id="turnText">Players Turn</h2>
+
+    <div class="modal">
+      <h2 id="turnText2">PLAYER WIN</h2>
+      <button class="restart">Restart</button>
+    </div>
+
+    <script src="TicTacToe.js"></script>
+  </body>
+</html>
